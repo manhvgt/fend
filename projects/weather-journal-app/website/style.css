@@ -5,46 +5,27 @@ body{
 
 #app{
     display: grid;
-    grid-auto-rows: minmax(150px, auto);
-    /* grid-template-columns:  */
-    height:100vh;
-    background: #f23557;
-    color: #f0d43a;
+    grid-template-rows: auto;
+    grid-auto-rows: auto;
+    background: #ffffff;
+    color: #00ff22;
     justify-content: center;
+    /* align-content: center; */
     grid-gap: 1em;
     font-size: 20px;
+    /* justify-items: center; */
+    align-items: center;
     font-family: 'Oswald', sans-serif;
+    border-radius: 10px;
+    /* max-width: 25em; */
 }
 
 .holder{
 
 }
 
-.entry{
-    background: rgba(59, 74, 107, .4);
-}
-
-#entryHolder{
-
-}
-
-#date{
-
-}
-
-#temp{
-
-}
-
-#content{
-
-}
-
 .headline {
-
-}
-.title{
-
+    font-size: 2em;
 }
 
 /*  Basic Styling To Override Default For Basic HTML Elements */
@@ -54,35 +35,50 @@ label{
 }
 
 input{
-    display:block;
-    height: 60px;
-    width: 320px;
-    background:#22b2da;
+    height: 2.5em;
+    width: 100%;
+    background:#ffffff;
     color: #f0d43a;
     font-size: 20px;
     font-family: 'Oswald', sans-serif;
-    border: none;
+    border-radius: 8px;
+    border: 2px solid #444;
+    padding-left: 1em;
 }
 
 button{
-    width: 400px;
-    height: 100px;
+    width: 100%;
+    height: 2.5em;
     background: #3b4a6b;
     color: #f0d43a;
     font-size: 26px;
     font-family: 'Oswald', sans-serif;
     border: none;
+    border-radius: 8px;
     box-shadow: 2px 4px 5px #444;
+    cursor: pointer;
 }
+button:hover {
+    background-color: #1eff00;
+    border-radius: 5px;
+}
+
 h1{
     font-size: 36px;
 }
 
 textarea{
-    background:#22b2da;
+    background:#ffffff;
     color: #f0d43a;
     font-size: 20px;
     font-family: 'Oswald', sans-serif;
+    height: 6em;
+    width: 100%;
+    border-radius: 8px;
+    border: 2px solid #444;
+    padding-left: 1em;
+    overflow: auto;
+    resize: none;
 }
 /* Reset style for HTML element on active to have no border*/
 input:focus,
@@ -93,19 +89,61 @@ button:focus {
 }
 /* Style for Placeholder Text*/
 ::placeholder { /* Firefox, Chrome, Opera */ 
-    color: #f0d43a; 
+    color: #9b9b9b; 
     font-family: 'Oswald', sans-serif;
 
 } 
   
 :-ms-input-placeholder { /* Internet Explorer 10-11 */ 
-    color: #f0d43a; 
+    color: #9b9b9b; 
     font-family: 'Oswald', sans-serif;
 
 } 
   
 ::-ms-input-placeholder { /* Microsoft Edge */ 
-    color: #f0d43a; 
+    color: #9b9b9b; 
     font-family: 'Oswald', sans-serif;
 
 } 
+
+/* Styling for Output */
+#outputInfo {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(10em, 1fr));;
+    grid-template-areas: 
+    "weatherInfo" "weatherIllustration";
+    background: #ffffff;
+    height: auto-fit, minmax(18em, 1fr);
+    width: 100%;
+    /* border: 2px solid #444; */
+    border-radius: 8px;
+    padding-left: 1em;
+}
+
+#weatherInfo {
+    display: subgrid;
+    grid-template-rows: auto;
+    grid-auto-rows: auto;
+    border-radius: 8px;
+}
+
+#weatherIllustration {
+    display: subgrid;
+    grid-template-rows: auto;
+    grid-auto-rows: auto;
+    border-radius: 8px;
+    place-items: center;
+    padding-left: 1em;
+}
+
+#weatherIllustration img {
+    width: 80%;
+    max-height: 100%;
+    object-fit: contain;  
+}
+
+#outFeeling {
+    display: flex;
+    width: auto;
+    color: aqua;
+}

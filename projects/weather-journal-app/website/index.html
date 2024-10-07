@@ -1,35 +1,48 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Weather Journal</title>
-<link href="https://fonts.googleapis.com/css?family=Oswald:400,600,700|Ranga:400,700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Weather Journal</title>
+  <link href="https://fonts.googleapis.com/css?family=Oswald:400,600,700|Ranga:400,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
- <body>
-<div id = "app">
-  <div class ="holder headline">
-    Weather Journal App
+  <body>
+  <div id = "app">
+    <div class ="holder headline">
+      Weather Journal App
+    </div>
+    <div id="inCity" class="">
+      <label for="inCityName">Search by city name</label>
+      <input type="text" id="inCityName" placeholder="city name">
+    </div>
+    <div class ="holder feel">
+      <label for="feelings">How are you feeling today?</label>
+      <textarea class= "myInput" id="inFeelings" placeholder="Enter your feelings here" rows="9" cols="50"></textarea>
+    </div>
+    <div class="holder generate">
+      <button id="btnGenerateByCity" type = "submit"> Generate</button>
+    </div>
+    <div id="outputInfo">
+      <div id="weatherInfo">
+        <div id="outCountry"></div>
+        <div id="outCity"></div>
+        <div id="outLocaltime"></div>
+        <div id="outTemp"></div>
+        <div id="outHumidity"></div>
+        <div id="outFeelslike"></div>
+      </div>
+      <div id="weatherIllustration">
+        <div id="outIcon">
+          <img id="outIconImg">
+        </div>
+        <div id="outCondition"></div>
+      </div>
+      <div id="outFeeling"></div>
+    </div>
   </div>
-  <div class ="holder zip">
-    <label for="zip">Enter Zipcode here</label>
-    <input type="text" id="zip" placeholder="enter zip code here">
-  </div>
-  <div class ="holder feel">
-    <label for="feelings">How are you feeling today?</label>
-    <textarea class= "myInput" id="feelings" placeholder="Enter your feelings here" rows="9" cols="50"></textarea>
-    <button id="generate" type = "submit"> Generate </button>
-  </div>
-  <div class ="holder entry">
-    <div class = "title">Most Recent Entry</div>
-   <div id = "entryHolder">
-    <div id = "date"></div> 
-   <div id = "temp"></div>
-   <div id = "content"></div>
-  </div>
-  </div>
-  </div>
-<script src="app.js" type="text/javascript"></script>
+  <script src="app.js" type="text/javascript"></script>
 
-</body>
+  </body>
 </html>
