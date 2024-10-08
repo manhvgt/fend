@@ -33,7 +33,7 @@ const updatePage = async() => {
             // console.log("Response: ", ret);
 
             // Update GUI
-            updateGUI(ret);
+            await updateGUI(ret);
         }
     }
     catch(error) {
@@ -48,6 +48,7 @@ const updateGUI = async(info) => {
         console("null input!");
         return;
     }
+    // console.log("info: ", info);
     // update GUI
     outInfo.style.border = "2px solid #444";
 
@@ -85,15 +86,11 @@ const getDataByCityListener = async(event) => {
 
         // post data
         await postWeatherData(rawData);
-        
-        // update
-        await updatePage();
-        return;
     } 
     catch(error) {
         // Error handling
         console.error("Failed handling data: ", error);
-        alert("Error! Failed to get data! Please check the input and retry!");
+        // alert("Error! Failed to get data! Please check the input and retry!");
         return null;
     }
 };
@@ -129,7 +126,6 @@ const postWeatherData = async(rawData) => {
         // alert("Warning! Failed to handling POST data. Please try again!");
         console.error("null input!");
     }
-    // console.log("rawData: ", rawData);
 
     // setup output data
     const postData = {
@@ -155,17 +151,19 @@ const postWeatherData = async(rawData) => {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify(postData)
-        });
+        })
+        .then(updatePage());
     }
     catch(error) {
         // Error handling
         console.error("Failed to fetch data: ", error);
     }
+    console.log("postWeatherData: ", done);
 };
 
 // Add event listener to get data button
 btnGenerateByCity.addEventListener('click', getDataByCityListener);
 
 // For future function to autoloading from DB when starting the app
-// // Initialize UI when DOM content is loaded
+// Initialize UI when DOM content is loaded
 // window.addEventListener("DOMContentLoaded", updatePage);

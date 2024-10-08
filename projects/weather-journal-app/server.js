@@ -38,9 +38,9 @@ function getWeatherData(req, res) {
 // Callback function to complete POST '/weather'
 function postWeatherData(req, res) {
     projectData = req.body;
+    console.log("Weather data has been saved.");
     console.log(projectData);
     // Save data for further data process on BE side
-    // console.log("Weather data has been saved.");
 }
 
 // GET route
